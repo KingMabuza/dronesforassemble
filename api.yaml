@@ -9,7 +9,7 @@ info:
 servers:
   - url: http://localhost:3000
     description: This is my local Server
-  - url: http://example.com
+  - url: https://dronesrsa.herokuapp.com/
     description: "This is my original URL"
 schemes: [https,http]
 
