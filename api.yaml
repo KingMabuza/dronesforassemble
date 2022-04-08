@@ -1,0 +1,76 @@
+swagger: "2.0"
+info:
+  title: Drones API
+  description: Drones API Documentation
+  version: 1.0
+  licence:
+    name: Apache 2.0
+    url: "http://www.apache.org/liscences/LIS"
+servers:
+  - url: http://localhost:3000
+    description: This is my local Server
+  - url: http://example.com
+    description: "This is my original URL"
+schemes: [https,http]
+
+paths:
+  /drones:
+    get:
+      summary: Returns a list of drones.
+      description: List of all drones
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: array
+            items: 
+              type: object
+              properties:
+                name:
+                  type: string
+  /add/drone:
+    post:
+      summary: Posts new drone
+      description: Adds a new drone to all Drones
+      parameters:
+        - name: name
+          in: formData
+          required: true
+          type: string
+      responses:
+        201:
+          description: Successful Response
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+  /add/packages:
+    post:
+      summary: Posts list of packages
+      description: Adds a list of packages
+      parameters:
+        - name: name
+          in: formData
+          required: true
+          type: array
+        - weight: weight
+          in: formData
+          required: true
+          type: array
+        - destination: destination
+          in: formData
+          required: true
+          type: array
+      responses:
+        201:
+          description: Successful Response
+          schema:
+            type: object
+            properties:
+              name: 
+                type: string
+              weight:
+                type: string
+              destination:
+                type: string  
